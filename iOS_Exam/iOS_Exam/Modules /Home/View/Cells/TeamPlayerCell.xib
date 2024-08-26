@@ -23,7 +23,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="h94-iB-u2P">
                                 <rect key="frame" x="8" y="8" width="405" height="112"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anrich-nortje" translatesAutoresizingMaskIntoConstraints="NO" id="OZR-2y-mEY">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="virat-kohli" translatesAutoresizingMaskIntoConstraints="NO" id="OZR-2y-mEY">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="112"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="3bb-pv-bb2"/>
@@ -86,7 +86,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="anrich-nortje" width="112" height="112"/>
+        <image name="virat-kohli" width="112" height="112"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

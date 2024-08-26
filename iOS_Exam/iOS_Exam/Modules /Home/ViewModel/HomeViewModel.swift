@@ -12,17 +12,26 @@ final class HomeViewModel {
     
     var refresh: (() -> Void)?
     var cricketTeams: [Team] = []
-    var selectedTeamPlayer: [Player] = [] {
+    var selectedFilterTeamPlayers: [Player] = [] {
         didSet {
             if let refresh {
                 refresh()
             }
         }
     }
+    var selectedPlayer: [Player] = [] 
     
-    func didChangeTeam(index: Int) {
-        print(index)
-        selectedTeamPlayer = cricketTeams[index].players
+    func didChangeTeam(index: Int, searchText: String) {
+        selectedPlayer = cricketTeams[index].players
+        didSearchPlayer(text: searchText)
+    }
+    
+    func didSearchPlayer(text: String) {
+        if text.isEmpty {
+            selectedFilterTeamPlayers = selectedPlayer
+        } else {
+            selectedFilterTeamPlayers = selectedPlayer.filter { $0.name.lowercased().contains(text.lowercased()) }
+        }
     }
     
     func fetchData() {
@@ -31,7 +40,8 @@ final class HomeViewModel {
         switch result {
         case .success(let response) :
             cricketTeams = response.teams
-            selectedTeamPlayer = response.teams.first?.players ?? []
+            selectedFilterTeamPlayers = response.teams.first?.players ?? []
+            selectedPlayer = selectedFilterTeamPlayers
             
         case .failure(let error) : print(error)
         }
