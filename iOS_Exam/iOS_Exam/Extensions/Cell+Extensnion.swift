@@ -6,12 +6,12 @@
 
 import UIKit
 
-protocol IdNibLoadable{
+protocol IdNibProtocol {
     static var id: String { get }
     static var nib: UINib { get }
 }
 
-extension IdNibLoadable{
+extension IdNibProtocol {
     static var id: String {
         return String(describing: self)
     }
@@ -21,9 +21,9 @@ extension IdNibLoadable{
     }
 }
 
-extension UIViewController: IdNibLoadable { }
+extension UIViewController: IdNibProtocol { }
 
-extension UIView: IdNibLoadable { }
+extension UIView: IdNibProtocol { }
 
 
 

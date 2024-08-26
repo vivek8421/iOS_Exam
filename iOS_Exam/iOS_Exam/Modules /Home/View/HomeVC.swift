@@ -92,17 +92,11 @@ extension HomeVC: UITableViewDelegate {
     
     //header Section
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 1 {
-            return searchBar
-        }
-        return nil // Return nil for other sections or customize as needed
+        section == 1 ? searchBar : nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 1 {
-            return 50 // Adjust the height as needed
-        }
-        return 0 // No header for other sections
+        section == 1 ? 50 : 0
     }
 }
 
@@ -119,5 +113,13 @@ extension HomeVC: UISearchBarDelegate {
         searchBar.text = ""
         searchBar.resignFirstResponder()
         searchBar.showsCancelButton = false
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
