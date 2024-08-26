@@ -1,0 +1,309 @@
+{
+  "teams": [
+    {
+      "country": "India",
+      "teamImageUrl": "india-team",
+      "players": [
+        {
+          "name": "Rohit Sharma",
+          "role": "Batsman",
+          "imageUrl": "rohit-sharma"
+        },
+        {
+          "name": "Virat Kohli",
+          "role": "Batsman",
+          "imageUrl": "virat-kohli"
+        },
+        {
+          "name": "KL Rahul",
+          "role": "Wicketkeeper-Batsman",
+          "imageUrl": "kl-rahul"
+        },
+        {
+          "name": "Suryakumar Yadav",
+          "role": "Batsman",
+          "imageUrl": "suryakumar-yadav"
+        },
+        {
+          "name": "Hardik Pandya",
+          "role": "All-rounder",
+          "imageUrl": "hardik-pandya"
+        },
+        {
+          "name": "Ravindra Jadeja",
+          "role": "All-rounder",
+          "imageUrl": "ravindra-jadeja"
+        },
+        {
+          "name": "Yuzvendra Chahal",
+          "role": "Bowler",
+          "imageUrl": "yuzvendra-chahal"
+        },
+        {
+          "name": "Jasprit Bumrah",
+          "role": "Bowler",
+          "imageUrl": "jasprit-bumrah"
+        },
+        {
+          "name": "Mohammed Shami",
+          "role": "Bowler",
+          "imageUrl": "mohammed-shami"
+        },
+        {
+          "name": "Axar Patel",
+          "role": "All-rounder",
+          "imageUrl": "axar-patel"
+        },
+        {
+          "name": "Shreyas Iyer",
+          "role": "Batsman",
+          "imageUrl": "shreyas-iyer"
+        }
+      ]
+    },
+    {
+      "country": "South Africa",
+      "teamImageUrl": "southafrica-team",
+      "players": [
+        {
+          "name": "Quinton de Kock",
+          "role": "Wicketkeeper-Batsman",
+          "imageUrl": "quinton-de-kock"
+        },
+        {
+          "name": "Temba Bavuma",
+          "role": "Batsman",
+          "imageUrl": "temba-bavuma"
+        },
+        {
+          "name": "Aiden Markram",
+          "role": "Batsman",
+          "imageUrl": "aiden-markram"
+        },
+        {
+          "name": "Rassie van der Dussen",
+          "role": "Batsman",
+          "imageUrl": "rassie-van-der-dussen"
+        },
+        {
+          "name": "David Miller",
+          "role": "Batsman",
+          "imageUrl": "david-miller"
+        },
+        {
+          "name": "Dwaine Pretorius",
+          "role": "All-rounder",
+          "imageUrl": "dwaine-pretorius"
+        },
+        {
+          "name": "Kagiso Rabada",
+          "role": "Bowler",
+          "imageUrl": "kagiso-rabada"
+        },
+        {
+          "name": "Anrich Nortje",
+          "role": "Bowler",
+          "imageUrl": "anrich-nortje"
+        },
+        {
+          "name": "Tabraiz Shamsi",
+          "role": "Bowler",
+          "imageUrl": "tabraiz-shamsi"
+        },
+        {
+          "name": "Keshav Maharaj",
+          "role": "Bowler",
+          "imageUrl": "keshav-maharaj"
+        },
+        {
+          "name": "Reeza Hendricks",
+          "role": "Batsman",
+          "imageUrl": "reeza-hendricks"
+        }
+      ]
+    },
+    {
+      "country": "UAE",
+      "teamImageUrl": "uae-team",
+      "players": [
+        {
+          "name": "Muhammad Waseem",
+          "role": "Batsman",
+          "imageUrl": "muhammad-waseem"
+        },
+        {
+          "name": "Chirag Suri",
+          "role": "Batsman",
+          "imageUrl": "chirag-suri"
+        },
+        {
+          "name": "Vriitya Aravind",
+          "role": "Wicketkeeper-Batsman",
+          "imageUrl": "vriitya-aravind"
+        },
+        {
+          "name": "Basil Hameed",
+          "role": "All-rounder",
+          "imageUrl": "basil-hameed"
+        },
+        {
+          "name": "Rohan Mustafa",
+          "role": "All-rounder",
+          "imageUrl": "rohan-mustafa"
+        },
+        {
+          "name": "Ahmed Raza",
+          "role": "Bowler",
+          "imageUrl": "ahmed-raza"
+        },
+        {
+          "name": "Karthik Meiyappan",
+          "role": "Bowler",
+          "imageUrl": "karthik-meiyappan"
+        },
+        {
+          "name": "Zahoor Khan",
+          "role": "Bowler",
+          "imageUrl": "zahoor-khan"
+        },
+        {
+          "name": "Junaid Siddique",
+          "role": "Bowler",
+          "imageUrl": "junaid-siddique"
+        },
+        {
+          "name": "Alishan Sharafu",
+          "role": "Batsman",
+          "imageUrl": "alishan-sharafu"
+        },
+        {
+          "name": "Aayan Khan",
+          "role": "All-rounder",
+          "imageUrl": "aayan-khan"
+        }
+      ]
+    },
+    {
+      "country": "Australia",
+      "teamImageUrl": "australia-team",
+      "players": [
+        {
+          "name": "David Warner",
+          "role": "Batsman",
+          "imageUrl": "david-warner"
+        },
+        {
+          "name": "Aaron Finch",
+          "role": "Batsman",
+          "imageUrl": "aaron-finch"
+        },
+        {
+          "name": "Steve Smith",
+          "role": "Batsman",
+          "imageUrl": "steve-smith"
+        },
+        {
+          "name": "Glenn Maxwell",
+          "role": "All-rounder",
+          "imageUrl": "glenn-maxwell"
+        },
+        {
+          "name": "Marcus Stoinis",
+          "role": "All-rounder",
+          "imageUrl": "marcus-stoinis"
+        },
+        {
+          "name": "Mitchell Marsh",
+          "role": "All-rounder",
+          "imageUrl": "mitchell-marsh"
+        },
+        {
+          "name": "Pat Cummins",
+          "role": "Bowler",
+          "imageUrl": "pat-cummins"
+        },
+        {
+          "name": "Josh Hazlewood",
+          "role": "Bowler",
+          "imageUrl": "josh-hazlewood"
+        },
+        {
+          "name": "Adam Zampa",
+          "role": "Bowler",
+          "imageUrl": "adam-zampa"
+        },
+        {
+          "name": "Mitchell Starc",
+          "role": "Bowler",
+          "imageUrl": "mitchell-starc"
+        },
+        {
+          "name": "Matthew Wade",
+          "role": "Wicketkeeper-Batsman",
+          "imageUrl": "matthew-wade"
+        }
+      ]
+    },
+    {
+      "country": "England",
+      "teamImageUrl": "england-team",
+      "players": [
+        {
+          "name": "Jos Buttler",
+          "role": "Wicketkeeper-Batsman",
+          "imageUrl": "jos-buttler"
+        },
+        {
+          "name": "Jason Roy",
+          "role": "Batsman",
+          "imageUrl": "jason-roy"
+        },
+        {
+          "name": "Dawid Malan",
+          "role": "Batsman",
+          "imageUrl": "dawid-malan"
+        },
+        {
+          "name": "Ben Stokes",
+          "role": "All-rounder",
+          "imageUrl": "ben-stokes"
+        },
+        {
+          "name": "Moeen Ali",
+          "role": "All-rounder",
+          "imageUrl": "moeen-ali"
+        },
+        {
+          "name": "Chris Woakes",
+          "role": "Bowler",
+          "imageUrl": "chris-woakes"
+        },
+        {
+          "name": "Mark Wood",
+          "role": "Bowler",
+          "imageUrl": "mark-wood"
+        },
+        {
+          "name": "Adil Rashid",
+          "role": "Bowler",
+          "imageUrl": "adil-rashid"
+        },
+        {
+          "name": "Jofra Archer",
+          "role": "Bowler",
+          "imageUrl": "jofra-archer"
+        },
+        {
+          "name": "Sam Currie",
+          "role": "All-rounder",
+          "imageUrl": "sam-currie"
+        },
+        {
+          "name": "Jonny Bairstow",
+          "role": "Batsman",
+          "imageUrl": "jonny-bairstow"
+        }
+      ]
+    }
+  ]
+}
