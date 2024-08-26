@@ -24,6 +24,7 @@
 		181F90A62C7C70A200E2E288 /* CricketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F90A52C7C70A200E2E288 /* CricketModel.swift */; };
 		181F90AD2C7C7CE600E2E288 /* TeamPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F90AB2C7C7CE600E2E288 /* TeamPlayerCell.swift */; };
 		181F90AE2C7C7CE600E2E288 /* TeamPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181F90AC2C7C7CE600E2E288 /* TeamPlayerCell.xib */; };
+		181F90B02C7C828E00E2E288 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F90AF2C7C828E00E2E288 /* UICollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		181F90A52C7C70A200E2E288 /* CricketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CricketModel.swift; sourceTree = "<group>"; };
 		181F90AB2C7C7CE600E2E288 /* TeamPlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPlayerCell.swift; sourceTree = "<group>"; };
 		181F90AC2C7C7CE600E2E288 /* TeamPlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamPlayerCell.xib; sourceTree = "<group>"; };
+		181F90AF2C7C828E00E2E288 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				181F909A2C7C6C5F00E2E288 /* Cell+Extensnion.swift */,
+				181F90AF2C7C828E00E2E288 /* UICollectionView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				181F90A62C7C70A200E2E288 /* CricketModel.swift in Sources */,
 				181F90AD2C7C7CE600E2E288 /* TeamPlayerCell.swift in Sources */,
 				181F90912C7C6BF600E2E288 /* HomeVC.swift in Sources */,
+				181F90B02C7C828E00E2E288 /* UICollectionView.swift in Sources */,
 				181F90972C7C6C0A00E2E288 /* HomePageBannerCell.swift in Sources */,
 				181F90752C7C68AB00E2E288 /* AppDelegate.swift in Sources */,
 				181F90A42C7C703B00E2E288 /* HomeViewModel.swift in Sources */,

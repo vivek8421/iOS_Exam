@@ -8,6 +8,18 @@
 import UIKit
 
 class TeamPlayerCell: UITableViewCell {
+    
+    @IBOutlet weak var profileImg: UIImageView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblSubTitle: UILabel!
+    
+    var player: Player? {
+        didSet {
+            guard let player else { return }
+            lblTitle.text = player.name
+            lblSubTitle.text = player.role.rawValue
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -10,7 +10,6 @@ import UIKit
 class HomeVC: UIViewController {
 // MARK: - Outlets
     @IBOutlet weak var homePageTableView: UITableView!
-    
     private let viewModel = HomeViewModel()
     
 // MARK: - ViewLifeCycles
@@ -19,15 +18,13 @@ class HomeVC: UIViewController {
        configuration()
        viewModel.fetchData()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
-    }
-}
-
-// MARK: - Configuratins
-extension HomeVC{
-    private func configuration(){
+    
+// MARK: - Configuration Methods
+    private func configuration() {
+        viewModel.refresh = { [weak self] in
+            guard let self else { return }
+            self.homePageTableView.reloadData()
+        }
         homePageTableView.dataSource = self
         homePageTableView.delegate = self
         homePageTableView.register(HomePageBannerCell.nib, forCellReuseIdentifier: HomePageBannerCell.id)
@@ -35,30 +32,40 @@ extension HomeVC{
     }
 }
 
-
-extension HomeVC: UITableViewDataSource{
+// MARK: - UITableViewDataSource Methods
+extension HomeVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : 30
+        return section == 0 ? 1 : viewModel.selectedTeamPlayer.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0{
-            guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: HomePageBannerCell.id, for: indexPath) as? HomePageBannerCell else { fatalError("xib doesn't exist")
+        if indexPath.section == 0 {
+            guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: HomePageBannerCell.id, for: indexPath) as? HomePageBannerCell else {
+                return UITableViewCell()
+            }
+            cell.teams = viewModel.cricketTeams
+            cell.didChangeTeam = { [weak self] index in
+                guard let self else { return }
+                self.viewModel.didChangeTeam(index: index)
             }
             return cell
-        }
-        else {
+        } else {
             guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: TeamPlayerCell.id, for: indexPath) as? TeamPlayerCell else {
-                fatalError("xib doesn't exist") }
-           // cell.news = viewModel.news[indexPath.row]
+                return UITableViewCell()
+            }
+            cell.player = self.viewModel.selectedTeamPlayer[indexPath.row]
             return cell
         }
     }
 }
-extension HomeVC: UITableViewDelegate{
+
+// MARK: - UITableViewDelegate Methods
+extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (indexPath.section == 0) ? 240 : UITableView.automaticDimension
+        return (indexPath.section == 0) ? 220 : UITableView.automaticDimension
     }
 }

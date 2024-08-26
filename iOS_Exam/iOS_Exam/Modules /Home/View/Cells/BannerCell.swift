@@ -9,17 +9,15 @@ import UIKit
 class BannerCell: UICollectionViewCell {
 
     @IBOutlet weak var imgView: UIImageView!
+    var team: Team? {
+        didSet {
+            guard let team else { return }
+            imgView.image = UIImage(named: team.teamImageURL)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    var imageString: String?{
-        didSet{
-            guard let imageString else{return}
-           // imgView.setImage(urlString: imageString)
-        }
-    }
-
 }
