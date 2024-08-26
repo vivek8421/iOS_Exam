@@ -9,13 +9,16 @@ class HomePageBannerCell: UITableViewCell {
     @IBOutlet weak var bannerCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    var teams: [Team] = []
+    var teams: [Team] = [] {
+        didSet {
+            pageControl.numberOfPages = teams.count
+        }
+    }
     var didChangeTeam: ((_ index: Int) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         pageControl.currentPage = 0
-        pageControl.numberOfPages = teams.count
         bannerCollectionView.dataSource = self
         bannerCollectionView.delegate = self
         bannerCollectionView.register(BannerCell.nib, forCellWithReuseIdentifier: BannerCell.id)
