@@ -36,10 +36,19 @@ class HomeVC: UIViewController {
         
         //search Bar configuration
         searchBar.placeholder = "Search Player"
+        searchBar.searchBarStyle = .prominent
         searchBar.delegate = self
-        searchBar.showsCancelButton = true
+        searchBar.showsCancelButton = false
         searchBar.sizeToFit()
     }
+    
+    @IBAction func presentBottomSheet(_ sender: Any) {
+        if let bottomSheetVC = self.storyboard?.instantiateViewController(withIdentifier: BottomSheetViewController.id) as? BottomSheetViewController {
+            bottomSheetVC.player = viewModel.selectedPlayer
+            self.presentBottomSheet(height: 180, viewController: bottomSheetVC)
+        }
+    }
+    
 }
 
 // MARK: - UITableViewDataSource Methods
@@ -62,6 +71,7 @@ extension HomeVC: UITableViewDataSource {
                 guard let self else { return }
                 let searchText = self.searchBar.text ?? ""
                 self.viewModel.didChangeTeam(index: index, searchText: searchText)
+                self.title = self.viewModel.cricketTeams[index].country
             }
             return cell
         } else {
@@ -97,16 +107,17 @@ extension HomeVC: UITableViewDelegate {
 }
 
 
-// MARK: - UISearchBarDelegate
+// MARK: - UISearchBarDelegate Methods
 extension HomeVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.didSearchPlayer(text: searchText)
+        searchBar.showsCancelButton = !searchText.isEmpty
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         viewModel.selectedFilterTeamPlayers = viewModel.selectedPlayer
         searchBar.text = ""
         searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
     }
-    
 }
