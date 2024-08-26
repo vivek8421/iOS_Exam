@@ -56,15 +56,71 @@
 		181F90732C7C68AB00E2E288 /* iOS_Exam */ = {
 			isa = PBXGroup;
 			children = (
-				181F90742C7C68AB00E2E288 /* AppDelegate.swift */,
-				181F90762C7C68AB00E2E288 /* SceneDelegate.swift */,
-				181F90782C7C68AB00E2E288 /* ViewController.swift */,
-				181F907A2C7C68AB00E2E288 /* Main.storyboard */,
-				181F907D2C7C68AF00E2E288 /* Assets.xcassets */,
-				181F907F2C7C68AF00E2E288 /* LaunchScreen.storyboard */,
+				181F908B2C7C692A00E2E288 /* Application */,
+				181F908A2C7C692600E2E288 /* Constants  */,
+				181F90892C7C692300E2E288 /* Extensions */,
+				181F908C2C7C694900E2E288 /* Utility */,
+				181F90882C7C691F00E2E288 /* Modules  */,
+				181F908E2C7C697200E2E288 /* Storyboards */,
+				181F908D2C7C694D00E2E288 /* Resources  */,
 				181F90822C7C68AF00E2E288 /* Info.plist */,
 			);
 			path = iOS_Exam;
+			sourceTree = "<group>";
+		};
+		181F90882C7C691F00E2E288 /* Modules  */ = {
+			isa = PBXGroup;
+			children = (
+				181F90782C7C68AB00E2E288 /* ViewController.swift */,
+			);
+			path = "Modules ";
+			sourceTree = "<group>";
+		};
+		181F90892C7C692300E2E288 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		181F908A2C7C692600E2E288 /* Constants  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Constants ";
+			sourceTree = "<group>";
+		};
+		181F908B2C7C692A00E2E288 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				181F90742C7C68AB00E2E288 /* AppDelegate.swift */,
+				181F90762C7C68AB00E2E288 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		181F908C2C7C694900E2E288 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		181F908D2C7C694D00E2E288 /* Resources  */ = {
+			isa = PBXGroup;
+			children = (
+				181F907D2C7C68AF00E2E288 /* Assets.xcassets */,
+			);
+			path = "Resources ";
+			sourceTree = "<group>";
+		};
+		181F908E2C7C697200E2E288 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				181F907A2C7C68AB00E2E288 /* Main.storyboard */,
+				181F907F2C7C68AF00E2E288 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
