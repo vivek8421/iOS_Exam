@@ -30,33 +30,35 @@ extension HomeVC{
     private func configuration(){
         homePageTableView.dataSource = self
         homePageTableView.delegate = self
-        homePageTableView.rowHeight = 220
         homePageTableView.register(HomePageBannerCell.nib, forCellReuseIdentifier: HomePageBannerCell.id)
-//        homePageTableView.register(NewsCell.nib, forCellReuseIdentifier: NewsCell.identifier)
+        homePageTableView.register(TeamPlayerCell.nib, forCellReuseIdentifier: TeamPlayerCell.id)
     }
 }
 
 
 extension HomeVC: UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return section == 0 ? 1 : 30
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0{
+        if indexPath.section == 0{
             guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: HomePageBannerCell.id, for: indexPath) as? HomePageBannerCell else { fatalError("xib doesn't exist")
             }
             return cell
         }
-//        else {
-//            guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: NewsCell.identifier, for: indexPath) as? NewsCell else { fatalError("xib doesn't exist") }
-//            cell.news = viewModel.news[indexPath.row]
-//            return cell
-//        }
-        return UITableViewCell()
+        else {
+            guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: TeamPlayerCell.id, for: indexPath) as? TeamPlayerCell else {
+                fatalError("xib doesn't exist") }
+           // cell.news = viewModel.news[indexPath.row]
+            return cell
+        }
     }
 }
 extension HomeVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (indexPath.row == 0) ? 220 : 120
+        return (indexPath.section == 0) ? 240 : UITableView.automaticDimension
     }
 }
