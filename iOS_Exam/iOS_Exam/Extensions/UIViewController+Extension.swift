@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    func presentBottomSheet(height: CGFloat,viewController: UIViewController){
+    func presentBottomSheet(height: CGFloat,viewController: UIViewController) {
         let nav = UINavigationController(rootViewController: viewController)
         nav.modalPresentationStyle = .pageSheet
         if #available(iOS 15.0, *) {
@@ -22,12 +22,5 @@ extension UIViewController {
             }
         }
         present(nav, animated: true, completion: nil)
-    }
-    
-    func presentBottomSheet(viewController: UIViewController) {
-        if let sheet = viewController.sheetPresentationController {
-            sheet.detents = [.medium(), .large()]
-        }
-        self.present(viewController, animated: true)
     }
 }

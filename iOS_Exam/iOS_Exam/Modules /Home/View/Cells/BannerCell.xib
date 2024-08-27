@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="421" height="219"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="n" translatesAutoresizingMaskIntoConstraints="NO" id="4eJ-AE-dmo">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4eJ-AE-dmo">
                         <rect key="frame" x="0.0" y="0.0" width="421" height="219"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds " value="YES"/>
@@ -41,7 +41,4 @@
             <point key="canvasLocation" x="335" y="42"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="n" width="1024" height="642"/>
-    </resources>
 </document>

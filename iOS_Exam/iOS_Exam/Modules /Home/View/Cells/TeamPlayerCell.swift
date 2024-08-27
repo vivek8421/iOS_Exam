@@ -12,6 +12,14 @@ class TeamPlayerCell: UITableViewCell {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
+    @IBOutlet weak var bgView: UIView! {
+        didSet {
+            bgView.layer.borderColor = UIColor.systemGray5.cgColor
+            bgView.layer.borderWidth = 1.0
+            bgView.layer.cornerRadius = 16.0
+            bgView.layer.masksToBounds = true
+        }
+    }
     
     var player: Player? {
         didSet {
@@ -21,7 +29,7 @@ class TeamPlayerCell: UITableViewCell {
             if let playerImg = UIImage(named: player.imageURL) {
                 profileImg.image = playerImg
             } else {
-                profileImg.image = UIImage(systemName: "person.circle.fill")
+                profileImg.image = UIImage(named: "no-image")
             }
         }
     }
