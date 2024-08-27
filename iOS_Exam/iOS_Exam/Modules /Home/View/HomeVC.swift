@@ -10,7 +10,7 @@ import UIKit
 class HomeVC: UIViewController {
 // MARK: - Outlets
     @IBOutlet weak var homePageTableView: UITableView!
-    @IBOutlet weak var bottomButton: UIButton!
+    @IBOutlet weak var floatingBtn: UIButton!
     
     let searchBar = UISearchBar()
     private let viewModel = HomeViewModel()
@@ -29,6 +29,7 @@ class HomeVC: UIViewController {
             guard let self else { return }
             self.homePageTableView.reloadData()
         }
+        
         //table View Configuration
         homePageTableView.dataSource = self
         homePageTableView.delegate = self
@@ -42,11 +43,11 @@ class HomeVC: UIViewController {
         searchBar.showsCancelButton = false
         searchBar.sizeToFit()
         
-        //for botton btn showdow add
-        bottomButton.layer.shadowColor = UIColor.black.cgColor
-        bottomButton.layer.shadowOffset = CGSize(width: 0, height: 4)
-        bottomButton.layer.shadowOpacity = 0.5
-        bottomButton.layer.shadowRadius = 4.0
+        //floating Button shadow configuration
+        floatingBtn.layer.shadowColor = UIColor.black.cgColor
+        floatingBtn.layer.shadowOffset = CGSize(width: 0, height: 4)
+        floatingBtn.layer.shadowOpacity = 0.5
+        floatingBtn.layer.shadowRadius = 4.0
     }
     
     @IBAction func presentBottomSheet(_ sender: Any) {
