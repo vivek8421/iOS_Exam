@@ -13,6 +13,8 @@ class BottomSheetViewController: UIViewController {
     @IBOutlet weak var lblSecond: UILabel!
     @IBOutlet weak var lblThird: UILabel!
     
+    @IBOutlet weak var lblTotalPlayer: UILabel!
+    
     private let viewModel = BottomSheetViewModel()
     var player: [Player] = []
 
@@ -22,6 +24,8 @@ class BottomSheetViewController: UIViewController {
     }
     
     private func configuration() {
+        lblTotalPlayer.text = "Startes \(player.count) items"
+        
         let playersNames = viewModel.getOnlyPlayer(playeres: player)
         let result = viewModel.topThreeCharacters(in: playersNames).characterOccurence
         

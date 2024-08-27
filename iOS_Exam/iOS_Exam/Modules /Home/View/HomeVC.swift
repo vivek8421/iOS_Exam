@@ -87,7 +87,7 @@ extension HomeVC: UITableViewDataSource {
 // MARK: - UITableViewDelegate Methods
 extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (indexPath.section == 0) ? 220 : UITableView.automaticDimension
+        return (indexPath.section == 0) ? CGFloat(tableView.frame.width * 0.65) : UITableView.automaticDimension
     }
     
     //header Section
