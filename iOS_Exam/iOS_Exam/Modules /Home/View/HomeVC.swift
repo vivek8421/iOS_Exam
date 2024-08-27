@@ -27,6 +27,7 @@ class HomeVC: UIViewController {
         viewModel.refresh = { [weak self] in
             guard let self else { return }
             self.homePageTableView.reloadData()
+           // self.homePageTableView.reloadRows(at: , with: .automatic)
         }
         //table View Configuration
         homePageTableView.dataSource = self

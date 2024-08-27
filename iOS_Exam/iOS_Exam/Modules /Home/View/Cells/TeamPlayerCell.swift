@@ -12,14 +12,7 @@ class TeamPlayerCell: UITableViewCell {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
-    @IBOutlet weak var bgView: UIView! {
-        didSet {
-            bgView.layer.borderColor = UIColor.systemGray5.cgColor
-            bgView.layer.borderWidth = 1.0
-            bgView.layer.cornerRadius = 16.0
-            bgView.layer.masksToBounds = true
-        }
-    }
+    @IBOutlet weak var bgView: UIView! 
     
     var player: Player? {
         didSet {
@@ -37,6 +30,10 @@ class TeamPlayerCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        bgView.layer.borderColor = UIColor.systemGray5.cgColor
+        bgView.layer.borderWidth = 1.0
+        bgView.layer.cornerRadius = 16.0
+        bgView.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
