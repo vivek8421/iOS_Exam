@@ -10,6 +10,7 @@ import UIKit
 class HomeVC: UIViewController {
 // MARK: - Outlets
     @IBOutlet weak var homePageTableView: UITableView!
+    @IBOutlet weak var bottomButton: UIButton!
     
     let searchBar = UISearchBar()
     private let viewModel = HomeViewModel()
@@ -27,7 +28,6 @@ class HomeVC: UIViewController {
         viewModel.refresh = { [weak self] in
             guard let self else { return }
             self.homePageTableView.reloadData()
-           // self.homePageTableView.reloadRows(at: , with: .automatic)
         }
         //table View Configuration
         homePageTableView.dataSource = self
@@ -41,6 +41,12 @@ class HomeVC: UIViewController {
         searchBar.delegate = self
         searchBar.showsCancelButton = false
         searchBar.sizeToFit()
+        
+        //for botton btn showdow add
+        bottomButton.layer.shadowColor = UIColor.black.cgColor
+        bottomButton.layer.shadowOffset = CGSize(width: 0, height: 4)
+        bottomButton.layer.shadowOpacity = 0.5
+        bottomButton.layer.shadowRadius = 4.0
     }
     
     @IBAction func presentBottomSheet(_ sender: Any) {
@@ -84,6 +90,7 @@ extension HomeVC: UITableViewDataSource {
         }
     }
 }
+
 
 // MARK: - UITableViewDelegate Methods
 extension HomeVC: UITableViewDelegate {

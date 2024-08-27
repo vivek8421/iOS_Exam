@@ -57,14 +57,13 @@ extension HomePageBannerCell: UICollectionViewDelegateFlowLayout {
 extension HomePageBannerCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         pageControl.currentPage = indexPath.row
-        didChangeTeam?(indexPath.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if let index = collectionView.visibleCurrentCellIndexPath {
             pageControl.currentPage = index.row
-            //didChangeTeam?(indexPath.row)
+            didChangeTeam?(index.row)
         }
     }
 }

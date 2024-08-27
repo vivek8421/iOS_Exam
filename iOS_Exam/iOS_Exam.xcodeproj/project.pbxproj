@@ -102,8 +102,8 @@
 		181F90882C7C691F00E2E288 /* Modules  */ = {
 			isa = PBXGroup;
 			children = (
-				181F90B52C7CB09B00E2E288 /* BottomSheet */,
 				181F908F2C7C6A5900E2E288 /* Home */,
+				181F90B52C7CB09B00E2E288 /* BottomSheet */,
 			);
 			path = "Modules ";
 			sourceTree = "<group>";

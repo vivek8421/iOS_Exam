@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    func presentBottomSheet(height: CGFloat,viewController: UIViewController) {
+    func presentBottomSheet(height: CGFloat, viewController: UIViewController) {
         let nav = UINavigationController(rootViewController: viewController)
         nav.modalPresentationStyle = .pageSheet
         if #available(iOS 15.0, *) {
