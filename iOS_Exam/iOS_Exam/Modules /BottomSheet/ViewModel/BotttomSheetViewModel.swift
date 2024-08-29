@@ -8,13 +8,12 @@
 import Foundation
 
 final class BottomSheetViewModel {
-    func getOnlyPlayer(playeres: [Player]) -> [String] {
-        return playeres.map { $0.name }
-    }
+    var player: [Player] = []
     
-    func topThreeCharacters(in array: [String]) -> BottomSheetModel {
+    func topThreeCharacters() -> BottomSheetModel {
+        let names = player.map { $0.name }
         var charCount: [Character: Int] = [:]
-        for string in array {
+        for string in names {
             for char in string {
                 if char != " " {
                     charCount[char, default: 0] += 1

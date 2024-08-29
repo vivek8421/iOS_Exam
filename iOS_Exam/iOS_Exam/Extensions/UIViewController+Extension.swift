@@ -13,12 +13,8 @@ extension UIViewController {
         nav.modalPresentationStyle = .pageSheet
         if #available(iOS 15.0, *) {
             if let sheet = nav.sheetPresentationController {
-                if #available(iOS 16.0, *) {
-                    sheet.preferredCornerRadius = 24
-                    sheet.detents = [.custom(resolver: { context in
-                        return height
-                    })]
-                }
+                sheet.detents = [.custom(resolver: { _ in height })]
+                sheet.preferredCornerRadius = 24
             }
         }
         present(nav, animated: true, completion: nil)

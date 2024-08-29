@@ -21,11 +21,8 @@ class HomePageBannerCell: UITableViewCell {
         pageControl.currentPage = 0
         bannerCollectionView.dataSource = self
         bannerCollectionView.delegate = self
-        bannerCollectionView.register(BannerCell.nib, forCellWithReuseIdentifier: BannerCell.id)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        let nib = UINib(nibName: Constants.bannerCell, bundle: nil)
+        bannerCollectionView.register(nib, forCellWithReuseIdentifier: Constants.bannerCell)
     }
 }
 
@@ -36,7 +33,7 @@ extension HomePageBannerCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = bannerCollectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.id, for: indexPath) as? BannerCell else {
+        guard let cell = bannerCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.bannerCell, for: indexPath) as? BannerCell else {
             fatalError()
         }
         cell.team = teams[indexPath.row]
@@ -55,12 +52,7 @@ extension HomePageBannerCell: UICollectionViewDelegateFlowLayout {
 
 
 extension HomePageBannerCell: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        pageControl.currentPage = indexPath.row
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
         if let index = collectionView.visibleCurrentCellIndexPath {
             pageControl.currentPage = index.row
             didChangeTeam?(index.row)

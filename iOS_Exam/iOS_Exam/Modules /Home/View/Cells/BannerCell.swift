@@ -15,9 +15,4 @@ class BannerCell: UICollectionViewCell {
             imgView.image = UIImage(named: team.teamImageURL)
         }
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 }

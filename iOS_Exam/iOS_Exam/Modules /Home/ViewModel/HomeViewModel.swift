@@ -8,7 +8,7 @@
 import Foundation
 
 final class HomeViewModel {
-    private let localJSONManager = LocalJSONManager.shared
+    private let localJSONManager = LocalJSONManager()
     
     var refresh: (() -> Void)?
     var cricketTeams: [Team] = []

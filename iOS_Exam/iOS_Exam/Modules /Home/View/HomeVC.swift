@@ -12,46 +12,56 @@ class HomeVC: UIViewController {
     @IBOutlet weak var homePageTableView: UITableView!
     @IBOutlet weak var floatingBtn: UIButton!
     
-    let searchBar = UISearchBar()
+    private let searchBar = UISearchBar()
     private let viewModel = HomeViewModel()
     
     
 // MARK: - ViewLifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        configuration()
+        setupTableView()
+        setupSearchBar()
+        setupFloatingButton()
         viewModel.fetchData()
     }
     
 // MARK: - Configuration Methods
-    private func configuration() {
+    private func setupTableView() {
         viewModel.refresh = { [weak self] in
             guard let self else { return }
             self.homePageTableView.reloadData()
         }
         
-        //table View Configuration
         homePageTableView.dataSource = self
         homePageTableView.delegate = self
-        homePageTableView.register(HomePageBannerCell.nib, forCellReuseIdentifier: HomePageBannerCell.id)
-        homePageTableView.register(TeamPlayerCell.nib, forCellReuseIdentifier: TeamPlayerCell.id)
-        
-        //search Bar configuration
+        let homePageBannerCellNib = UINib(nibName: Constants.homePageBannerCell,
+                                          bundle: nil)
+        homePageTableView.register(homePageBannerCellNib,
+                                   forCellReuseIdentifier: Constants.homePageBannerCell)
+        let teamPlayerCellNib = UINib(nibName: Constants.teamPlayerCell,
+                                      bundle: nil)
+        homePageTableView.register(teamPlayerCellNib,
+                                   forCellReuseIdentifier: Constants.teamPlayerCell)
+    }
+    
+    private func setupSearchBar() {
         searchBar.placeholder = "Search Player"
         searchBar.searchBarStyle = .prominent
         searchBar.delegate = self
         searchBar.showsCancelButton = false
         searchBar.sizeToFit()
-        
-        //floating Button shadow configuration
+    }
+    
+    private func setupFloatingButton() {
         floatingBtn.layer.shadowColor = UIColor.black.cgColor
         floatingBtn.layer.shadowOffset = CGSize(width: 0, height: 4)
         floatingBtn.layer.shadowOpacity = 0.5
         floatingBtn.layer.shadowRadius = 4.0
     }
     
+    
     @IBAction func presentBottomSheet(_ sender: Any) {
-        if let bottomSheetVC = self.storyboard?.instantiateViewController(withIdentifier: BottomSheetViewController.id) as? BottomSheetViewController {
+        if let bottomSheetVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.bottomSheetViewController) as? BottomSheetViewController {
             bottomSheetVC.player = viewModel.selectedPlayer
             self.presentBottomSheet(height: 180, viewController: bottomSheetVC)
         }
@@ -71,7 +81,7 @@ extension HomeVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: HomePageBannerCell.id, for: indexPath) as? HomePageBannerCell else {
+            guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: Constants.homePageBannerCell, for: indexPath) as? HomePageBannerCell else {
                 return UITableViewCell()
             }
             cell.teams = viewModel.cricketTeams
@@ -83,7 +93,7 @@ extension HomeVC: UITableViewDataSource {
             }
             return cell
         } else {
-            guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: TeamPlayerCell.id, for: indexPath) as? TeamPlayerCell else {
+            guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: Constants.teamPlayerCell, for: indexPath) as? TeamPlayerCell else {
                 return UITableViewCell()
             }
             cell.player = self.viewModel.selectedFilterTeamPlayers[indexPath.row]

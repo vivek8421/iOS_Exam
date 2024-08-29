@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeVC-->
+        <!--India-->
         <scene sceneID="R8W-7U-7Fh">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="1aK-mK-pWY" customClass="HomeVC" customModule="iOS_Exam" customModuleProvider="target" sceneMemberID="viewController">
@@ -27,7 +27,7 @@
                                     <constraint firstAttribute="width" secondItem="6b2-9K-EUg" secondAttribute="height" multiplier="1:1" id="mPo-v3-oyp"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="ic_home_floating" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="filled" image="floating-image" cornerStyle="capsule"/>
                                 <connections>
                                     <action selector="presentBottomSheet:" destination="1aK-mK-pWY" eventType="touchUpInside" id="Ktv-mR-S37"/>
                                 </connections>
@@ -44,7 +44,7 @@
                             <constraint firstAttribute="bottom" secondItem="6lL-CH-vLi" secondAttribute="bottom" id="z84-rC-AuD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="HYW-x9-1eh"/>
+                    <navigationItem key="navigationItem" title="India" id="HYW-x9-1eh"/>
                     <connections>
                         <outlet property="floatingBtn" destination="6b2-9K-EUg" id="ncv-LD-lBA"/>
                         <outlet property="homePageTableView" destination="6lL-CH-vLi" id="Jcz-rC-qbh"/>
@@ -149,7 +149,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_home_floating" width="24" height="24"/>
+        <image name="floating-image" width="24" height="24"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

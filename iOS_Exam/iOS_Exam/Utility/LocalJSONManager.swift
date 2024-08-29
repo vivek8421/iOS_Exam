@@ -9,10 +9,6 @@ import Foundation
 
 class LocalJSONManager {
     
-    static let shared = LocalJSONManager()
-    
-    private init() {}
-    
     enum JSONError: Error {
         case fileNotFound
         case decodingFailed(Error)
