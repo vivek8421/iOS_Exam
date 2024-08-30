@@ -12,28 +12,23 @@ class BottomSheetViewController: UIViewController {
     @IBOutlet weak var lblFirst: UILabel!
     @IBOutlet weak var lblSecond: UILabel!
     @IBOutlet weak var lblThird: UILabel!
-    
     @IBOutlet weak var lblTotalPlayer: UILabel!
     
-    private let viewModel = BottomSheetViewModel()
-    var player: [Player] = [] {
-        didSet {
-            viewModel.player = player
-        }
-    }
-    
+    let viewModel = BottomSheetViewModel()
+
     override func viewDidLoad() {
+        super.viewDidLoad()
         bindData()
     }
 
     private func bindData() {
-        lblTotalPlayer.text = "Players count \(player.count)"
+        lblTotalPlayer.text = "Players count \(viewModel.player.count)"
         let result = viewModel.topThreeCharacters().characterOccurence
         
         if result.count >= 3 {
-            lblFirst.text = viewModel.getString(result: result[0])
-            lblSecond.text = viewModel.getString(result: result[1])
-            lblThird.text = viewModel.getString(result: result[2])
+            lblFirst.text = viewModel.getCharacterCountString(result: result[0])
+            lblSecond.text = viewModel.getCharacterCountString(result: result[1])
+            lblThird.text = viewModel.getCharacterCountString(result: result[2])
         }
     }
 }

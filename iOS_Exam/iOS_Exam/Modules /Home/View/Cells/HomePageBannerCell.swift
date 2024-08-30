@@ -34,9 +34,9 @@ extension HomePageBannerCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = bannerCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.bannerCell, for: indexPath) as? BannerCell else {
-            fatalError()
+            return UICollectionViewCell()
         }
-        cell.team = teams[indexPath.row]
+        cell.teamImageURL = teams[indexPath.row].teamImageURL
         return cell
     }
 }

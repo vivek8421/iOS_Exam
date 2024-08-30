@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ms2-Hq-4if">
-                        <rect key="frame" x="16" y="4" width="389" height="184"/>
+                        <rect key="frame" x="16" y="4" width="389" height="441"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="h94-iB-u2P">
-                                <rect key="frame" x="16" y="16" width="357" height="152"/>
+                                <rect key="frame" x="16" y="16" width="357" height="409"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="OZR-2y-mEY">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="152"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="409"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="3bb-pv-bb2"/>
                                             <constraint firstAttribute="height" constant="70" id="XhL-k3-pVm"/>
@@ -36,7 +37,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="V6R-Ty-DkW">
-                                        <rect key="frame" x="82" y="52.666666666666671" width="275" height="47"/>
+                                        <rect key="frame" x="82" y="181" width="275" height="47"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9z-gN-hXf">
                                                 <rect key="frame" x="0.0" y="0.0" width="275" height="21.666666666666668"/>
@@ -55,6 +56,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <color key="backgroundColor" name="customGreen"/>
                         <constraints>
                             <constraint firstItem="h94-iB-u2P" firstAttribute="leading" secondItem="Ms2-Hq-4if" secondAttribute="leading" constant="16" id="FYu-zC-t3M"/>
                             <constraint firstAttribute="bottom" secondItem="h94-iB-u2P" secondAttribute="bottom" constant="16" id="KD4-1X-oiW"/>
@@ -81,7 +83,10 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="no-image" width="152" height="152"/>
+        <image name="no-image" width="409" height="409"/>
+        <namedColor name="customGreen">
+            <color red="0.71764705882352942" green="0.82352941176470584" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

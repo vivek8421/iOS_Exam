@@ -11,11 +11,9 @@ extension UIViewController {
     func presentBottomSheet(height: CGFloat, viewController: UIViewController) {
         let nav = UINavigationController(rootViewController: viewController)
         nav.modalPresentationStyle = .pageSheet
-        if #available(iOS 15.0, *) {
-            if let sheet = nav.sheetPresentationController {
-                sheet.detents = [.custom(resolver: { _ in height })]
-                sheet.preferredCornerRadius = 24
-            }
+        if #available(iOS 15.0, *), let sheet = nav.sheetPresentationController {
+            sheet.detents = [.custom(resolver: { _ in height })]
+            sheet.preferredCornerRadius = 24
         }
         present(nav, animated: true, completion: nil)
     }

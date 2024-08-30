@@ -9,10 +9,10 @@ import UIKit
 class BannerCell: UICollectionViewCell {
 
     @IBOutlet weak var imgView: UIImageView!
-    var team: Team? {
+    var teamImageURL: String? {
         didSet {
-            guard let team else { return }
-            imgView.image = UIImage(named: team.teamImageURL)
+            guard let teamImageURL else { return }
+            imgView.image = UIImage(named: teamImageURL)
         }
     }
 }

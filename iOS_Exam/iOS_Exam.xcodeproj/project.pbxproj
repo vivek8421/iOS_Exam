@@ -12,7 +12,7 @@
 		181F907C2C7C68AB00E2E288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181F907A2C7C68AB00E2E288 /* Main.storyboard */; };
 		181F907E2C7C68AF00E2E288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 181F907D2C7C68AF00E2E288 /* Assets.xcassets */; };
 		181F90812C7C68AF00E2E288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 181F907F2C7C68AF00E2E288 /* LaunchScreen.storyboard */; };
-		181F90912C7C6BF600E2E288 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F90902C7C6BF600E2E288 /* HomeVC.swift */; };
+		181F90912C7C6BF600E2E288 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F90902C7C6BF600E2E288 /* HomeViewController.swift */; };
 		181F90962C7C6C0A00E2E288 /* HomePageBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181F90922C7C6C0A00E2E288 /* HomePageBannerCell.xib */; };
 		181F90972C7C6C0A00E2E288 /* HomePageBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F90932C7C6C0A00E2E288 /* HomePageBannerCell.swift */; };
 		181F90982C7C6C0A00E2E288 /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181F90942C7C6C0A00E2E288 /* BannerCell.xib */; };
@@ -29,6 +29,7 @@
 		181F90B72C7CB0B900E2E288 /* BotttomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F90B62C7CB0B900E2E288 /* BotttomSheetViewModel.swift */; };
 		181F90B92C7CB12D00E2E288 /* BottomSheetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F90B82C7CB12D00E2E288 /* BottomSheetModel.swift */; };
 		189D61782C80946500E0E2D6 /* Constants .swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D61772C80946500E0E2D6 /* Constants .swift */; };
+		189D617A2C80A76100E0E2D6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189D61792C80A76100E0E2D6 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +40,7 @@
 		181F907D2C7C68AF00E2E288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		181F90802C7C68AF00E2E288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		181F90822C7C68AF00E2E288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		181F90902C7C6BF600E2E288 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		181F90902C7C6BF600E2E288 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		181F90922C7C6C0A00E2E288 /* HomePageBannerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageBannerCell.xib; sourceTree = "<group>"; };
 		181F90932C7C6C0A00E2E288 /* HomePageBannerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageBannerCell.swift; sourceTree = "<group>"; };
 		181F90942C7C6C0A00E2E288 /* BannerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		181F90B62C7CB0B900E2E288 /* BotttomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotttomSheetViewModel.swift; sourceTree = "<group>"; };
 		181F90B82C7CB12D00E2E288 /* BottomSheetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetModel.swift; sourceTree = "<group>"; };
 		189D61772C80946500E0E2D6 /* Constants .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants .swift"; sourceTree = "<group>"; };
+		189D61792C80A76100E0E2D6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				181F909C2C7C6EB000E2E288 /* DataResponse.json */,
 				181F907D2C7C68AF00E2E288 /* Assets.xcassets */,
+				189D61792C80A76100E0E2D6 /* Colors.xcassets */,
 			);
 			path = "Resources ";
 			sourceTree = "<group>";
@@ -182,7 +185,7 @@
 		181F90A02C7C6F2D00E2E288 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				181F90902C7C6BF600E2E288 /* HomeVC.swift */,
+				181F90902C7C6BF600E2E288 /* HomeViewController.swift */,
 				181F90A82C7C7C9800E2E288 /* Cells */,
 			);
 			path = View;
@@ -303,6 +306,7 @@
 			files = (
 				181F909D2C7C6EB000E2E288 /* DataResponse.json in Resources */,
 				181F90812C7C68AF00E2E288 /* LaunchScreen.storyboard in Resources */,
+				189D617A2C80A76100E0E2D6 /* Colors.xcassets in Resources */,
 				181F90AE2C7C7CE600E2E288 /* TeamPlayerCell.xib in Resources */,
 				181F907E2C7C68AF00E2E288 /* Assets.xcassets in Resources */,
 				181F907C2C7C68AB00E2E288 /* Main.storyboard in Resources */,
@@ -321,7 +325,7 @@
 				181F90B22C7CA56A00E2E288 /* UIViewController+Extension.swift in Sources */,
 				181F90A62C7C70A200E2E288 /* CricketModel.swift in Sources */,
 				181F90AD2C7C7CE600E2E288 /* TeamPlayerCell.swift in Sources */,
-				181F90912C7C6BF600E2E288 /* HomeVC.swift in Sources */,
+				181F90912C7C6BF600E2E288 /* HomeViewController.swift in Sources */,
 				181F90B72C7CB0B900E2E288 /* BotttomSheetViewModel.swift in Sources */,
 				181F90B02C7C828E00E2E288 /* UICollectionView+Extension.swift in Sources */,
 				181F90B92C7CB12D00E2E288 /* BottomSheetModel.swift in Sources */,

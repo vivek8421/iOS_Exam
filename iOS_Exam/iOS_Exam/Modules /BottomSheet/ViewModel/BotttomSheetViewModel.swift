@@ -26,7 +26,7 @@ final class BottomSheetViewModel {
         return bottomSheetData
     }
     
-    func getString(result: CharacterOccurrenceData) -> String {
+    func getCharacterCountString(result: CharacterOccurrenceData) -> String {
         return "\(result.character.capitalized) = \(result.count)"
     }
 }

@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
         <!--India-->
         <scene sceneID="R8W-7U-7Fh">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="1aK-mK-pWY" customClass="HomeVC" customModule="iOS_Exam" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="1aK-mK-pWY" customClass="HomeViewController" customModule="iOS_Exam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="atj-3x-Q1D">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,8 +27,11 @@
                                     <constraint firstAttribute="width" constant="50" id="SUW-J8-VKu"/>
                                     <constraint firstAttribute="width" secondItem="6b2-9K-EUg" secondAttribute="height" multiplier="1:1" id="mPo-v3-oyp"/>
                                 </constraints>
+                                <color key="tintColor" name="skayBlue"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="floating-image" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="filled" image="floating-image" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" name="skayBlue"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="presentBottomSheet:" destination="1aK-mK-pWY" eventType="touchUpInside" id="Ktv-mR-S37"/>
                                 </connections>
@@ -150,6 +154,9 @@
     </scenes>
     <resources>
         <image name="floating-image" width="24" height="24"/>
+        <namedColor name="skayBlue">
+            <color red="0.16862745098039217" green="0.59999999999999998" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

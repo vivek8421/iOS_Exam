@@ -19,11 +19,6 @@ class TeamPlayerCell: UITableViewCell {
             guard let player else { return }
             lblTitle.text = player.name
             lblSubTitle.text = player.role.rawValue
-            if let playerImg = UIImage(named: player.imageURL) {
-                profileImg.image = playerImg
-            } else {
-                profileImg.image = UIImage(named: "no-image")
-            }
         }
     }
 
