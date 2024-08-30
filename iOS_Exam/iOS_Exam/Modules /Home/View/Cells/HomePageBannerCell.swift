@@ -18,6 +18,10 @@ class HomePageBannerCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupViews()
+    }
+    
+    private func setupViews() {
         pageControl.currentPage = 0
         bannerCollectionView.dataSource = self
         bannerCollectionView.delegate = self

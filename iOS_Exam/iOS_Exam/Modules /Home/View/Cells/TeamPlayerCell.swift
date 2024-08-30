@@ -24,11 +24,13 @@ class TeamPlayerCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupBgView()
+    }
+    
+    private func setupBgView() {
         bgView.layer.borderColor = UIColor.systemGray5.cgColor
         bgView.layer.borderWidth = 1.0
         bgView.layer.cornerRadius = 16.0
         bgView.layer.masksToBounds = true
     }
-    
 }
