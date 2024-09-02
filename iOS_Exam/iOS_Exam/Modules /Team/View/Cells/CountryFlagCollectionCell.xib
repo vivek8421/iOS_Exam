@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BannerCell" id="gTV-IL-0wX" customClass="BannerCell" customModule="iOS_Exam" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CountryFlagCollectionCell" id="gTV-IL-0wX" customClass="CountryFlagCollectionCell" customModule="iOS_Exam" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="421" height="219"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -38,7 +38,7 @@
             <connections>
                 <outlet property="imgView" destination="4eJ-AE-dmo" id="SyQ-i8-Vr2"/>
             </connections>
-            <point key="canvasLocation" x="335" y="42"/>
+            <point key="canvasLocation" x="78.625954198473281" y="-24.295774647887324"/>
         </collectionViewCell>
     </objects>
 </document>

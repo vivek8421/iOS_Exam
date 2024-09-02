@@ -12,7 +12,7 @@
         <!--India-->
         <scene sceneID="R8W-7U-7Fh">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="1aK-mK-pWY" customClass="HomeViewController" customModule="iOS_Exam" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeamViewController" id="1aK-mK-pWY" customClass="TeamViewController" customModule="iOS_Exam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="atj-3x-Q1D">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
                     <navigationItem key="navigationItem" title="India" id="HYW-x9-1eh"/>
                     <connections>
                         <outlet property="floatingBtn" destination="6b2-9K-EUg" id="ncv-LD-lBA"/>
-                        <outlet property="homePageTableView" destination="6lL-CH-vLi" id="Jcz-rC-qbh"/>
+                        <outlet property="playersTableView" destination="6lL-CH-vLi" id="Jcz-rC-qbh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="840-fD-QNm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

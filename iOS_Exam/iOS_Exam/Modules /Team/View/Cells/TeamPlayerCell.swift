@@ -18,7 +18,7 @@ class TeamPlayerCell: UITableViewCell {
         didSet {
             guard let player else { return }
             lblTitle.text = player.name
-            lblSubTitle.text = player.role.rawValue
+            lblSubTitle.text = player.role
         }
     }
 
@@ -32,5 +32,11 @@ class TeamPlayerCell: UITableViewCell {
         bgView.layer.borderWidth = 1.0
         bgView.layer.cornerRadius = 16.0
         bgView.layer.masksToBounds = true
+    }
+    
+    func bindData(player: Player?) {
+        guard let player else { return }
+        lblTitle.text = player.name
+        lblSubTitle.text = player.role
     }
 }

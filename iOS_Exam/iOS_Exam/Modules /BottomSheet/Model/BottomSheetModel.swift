@@ -8,10 +8,10 @@
 import Foundation
 
 struct BottomSheetModel {
-    let characterOccurence: [CharacterOccurrenceData]
+    let characterOccurence: [CharacterOccurrenceData]?
 }
 
 struct CharacterOccurrenceData: Hashable {
-    let character: String
-    let count: Int
+    let character: String?
+    let count: Int?
 }

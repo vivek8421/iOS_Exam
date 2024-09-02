@@ -6,9 +6,10 @@
 
 import UIKit
 
-class BannerCell: UICollectionViewCell {
+class CountryFlagCollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var imgView: UIImageView!
+    
     var teamImageURL: String? {
         didSet {
             guard let teamImageURL else { return }

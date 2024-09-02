@@ -8,9 +8,9 @@
 import Foundation
 
 struct Constants {
-    static let homePageBannerCell = "HomePageBannerCell"
+    static let countryFlagCell = "CountryFlagCell"
     static let teamPlayerCell = "TeamPlayerCell"
-    static let bannerCell = "BannerCell"
+    static let countryFlagCollectionCell = "CountryFlagCollectionCell"
     
     static let bottomSheetViewController = "BottomSheetViewController"
 }

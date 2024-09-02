@@ -7,18 +7,19 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+
+class TeamViewController: UIViewController {
 // MARK: - Outlets
-    @IBOutlet weak var homePageTableView: UITableView!
+    @IBOutlet weak var playersTableView: UITableView!
     @IBOutlet weak var floatingBtn: UIButton!
     
     private let searchBar = UISearchBar()
-    private let viewModel = HomeViewModel()
-    
+    private var viewModel: TeamViewModelProtocol = TeamViewModel()
     
 // MARK: - ViewLifeCycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBlocks()
         setupTableView()
         setupSearchBar()
         setupFloatingButton()
@@ -26,21 +27,34 @@ class HomeViewController: UIViewController {
     }
     
 // MARK: - Configuration Methods
-    private func setupTableView() {
-        viewModel.refresh = { [weak self] in
+    private func setupBlocks() {
+        viewModel.successBlock = { [weak self] in
             guard let self else { return }
-            self.homePageTableView.reloadData()
+            DispatchQueue.main.async {
+                self.playersTableView.reloadData()
+            }
         }
         
-        homePageTableView.dataSource = self
-        homePageTableView.delegate = self
-        let homePageBannerCellNib = UINib(nibName: Constants.homePageBannerCell,
+        viewModel.failureBlock = { [weak self] errorMessage in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                self.playersTableView.addNoDataView(message: errorMessage)
+                self.searchBar.isHidden = true
+                self.title = ""
+            }
+        }
+    }
+    
+    private func setupTableView() {
+        playersTableView.dataSource = self
+        playersTableView.delegate = self
+        let countryFlagCellNib = UINib(nibName: Constants.countryFlagCell,
                                           bundle: nil)
-        homePageTableView.register(homePageBannerCellNib,
-                                   forCellReuseIdentifier: Constants.homePageBannerCell)
+        playersTableView.register(countryFlagCellNib,
+                                   forCellReuseIdentifier: Constants.countryFlagCell)
         let teamPlayerCellNib = UINib(nibName: Constants.teamPlayerCell,
                                       bundle: nil)
-        homePageTableView.register(teamPlayerCellNib,
+        playersTableView.register(teamPlayerCellNib,
                                    forCellReuseIdentifier: Constants.teamPlayerCell)
     }
     
@@ -62,7 +76,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func presentBottomSheet(_ sender: Any) {
         if let bottomSheetVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.bottomSheetViewController) as? BottomSheetViewController {
-            bottomSheetVC.viewModel.player = viewModel.selectedPlayer
+            bottomSheetVC.viewModel.player = viewModel.selectedPlayers
             self.presentBottomSheet(height: 180, viewController: bottomSheetVC)
         }
     }
@@ -70,33 +84,33 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource Methods
-extension HomeViewController: UITableViewDataSource {
+extension TeamViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : viewModel.selectedFilterTeamPlayers.count
+        return section == 0 ? 1 : viewModel.filterTeamPlayers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: Constants.homePageBannerCell, for: indexPath) as? HomePageBannerCell else {
+            guard let cell = playersTableView.dequeueReusableCell(withIdentifier: Constants.countryFlagCell, for: indexPath) as? CountryFlagCell else {
                 return UITableViewCell()
             }
-            cell.teams = viewModel.cricketTeams
+            cell.teams = viewModel.teams
             cell.didChangeTeam = { [weak self] index in
                 guard let self else { return }
                 let searchText = self.searchBar.text ?? ""
                 self.viewModel.didChangeTeam(index: index, searchText: searchText)
-                self.title = self.viewModel.cricketTeams[index].country
+                self.title = self.viewModel.teams[index].country
             }
             return cell
         } else {
-            guard let cell = homePageTableView.dequeueReusableCell(withIdentifier: Constants.teamPlayerCell, for: indexPath) as? TeamPlayerCell else {
+            guard let cell = playersTableView.dequeueReusableCell(withIdentifier: Constants.teamPlayerCell, for: indexPath) as? TeamPlayerCell else {
                 return UITableViewCell()
             }
-            cell.player = self.viewModel.selectedFilterTeamPlayers[indexPath.row]
+            cell.player = self.viewModel.filterTeamPlayers[indexPath.row]
             return cell
         }
     }
@@ -104,12 +118,11 @@ extension HomeViewController: UITableViewDataSource {
 
 
 // MARK: - UITableViewDelegate Methods
-extension HomeViewController: UITableViewDelegate {
+extension TeamViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (indexPath.section == 0) ? CGFloat(tableView.frame.width * 0.65) : UITableView.automaticDimension
     }
     
-    //header Section
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         section == 1 ? searchBar : nil
     }
@@ -121,14 +134,14 @@ extension HomeViewController: UITableViewDelegate {
 
 
 // MARK: - UISearchBarDelegate Methods
-extension HomeViewController: UISearchBarDelegate {
+extension TeamViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.didSearchPlayer(text: searchText)
         searchBar.showsCancelButton = !searchText.isEmpty
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.selectedFilterTeamPlayers = viewModel.selectedPlayer
+        viewModel.filterTeamPlayers = viewModel.selectedPlayers
         searchBar.text = ""
         searchBar.resignFirstResponder()
         searchBar.showsCancelButton = false

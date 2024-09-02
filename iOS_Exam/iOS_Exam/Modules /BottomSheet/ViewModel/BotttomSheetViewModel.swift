@@ -7,14 +7,20 @@
 
 import Foundation
 
-final class BottomSheetViewModel {
+protocol BottomSheetViewModelProtocol {
+    var player: [Player] { get set }
+    func topThreeCharacters() -> BottomSheetModel
+    func getCharacterCountString(result: CharacterOccurrenceData) -> String
+}
+
+final class BottomSheetViewModel: BottomSheetViewModelProtocol {
     var player: [Player] = []
     
     func topThreeCharacters() -> BottomSheetModel {
         let names = player.map { $0.name }
         var charCount: [Character: Int] = [:]
         for string in names {
-            for char in string {
+            for char in string ?? "" {
                 if char != " " {
                     charCount[char, default: 0] += 1
                 }
@@ -27,7 +33,7 @@ final class BottomSheetViewModel {
     }
     
     func getCharacterCountString(result: CharacterOccurrenceData) -> String {
-        return "\(result.character.capitalized) = \(result.count)"
+        return "\(result.character?.capitalized) = \(result.count)"
     }
 }
 

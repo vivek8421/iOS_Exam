@@ -5,8 +5,9 @@
 
 import UIKit
 
-class HomePageBannerCell: UITableViewCell {
-    @IBOutlet weak var bannerCollectionView: UICollectionView!
+class CountryFlagCell: UITableViewCell {
+    
+    @IBOutlet weak var flagCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
     var teams: [Team] = [] {
@@ -23,21 +24,21 @@ class HomePageBannerCell: UITableViewCell {
     
     private func setupViews() {
         pageControl.currentPage = 0
-        bannerCollectionView.dataSource = self
-        bannerCollectionView.delegate = self
-        let nib = UINib(nibName: Constants.bannerCell, bundle: nil)
-        bannerCollectionView.register(nib, forCellWithReuseIdentifier: Constants.bannerCell)
+        flagCollectionView.dataSource = self
+        flagCollectionView.delegate = self
+        let nib = UINib(nibName: Constants.countryFlagCollectionCell, bundle: nil)
+        flagCollectionView.register(nib, forCellWithReuseIdentifier: Constants.countryFlagCollectionCell)
     }
 }
 
 
-extension HomePageBannerCell: UICollectionViewDataSource {
+extension CountryFlagCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         teams.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = bannerCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.bannerCell, for: indexPath) as? BannerCell else {
+        guard let cell = flagCollectionView.dequeueReusableCell(withReuseIdentifier: Constants.countryFlagCollectionCell, for: indexPath) as? CountryFlagCollectionCell else {
             return UICollectionViewCell()
         }
         cell.teamImageURL = teams[indexPath.row].teamImageURL
@@ -46,20 +47,21 @@ extension HomePageBannerCell: UICollectionViewDataSource {
 }
 
 
-extension HomePageBannerCell: UICollectionViewDelegateFlowLayout {
+extension CountryFlagCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height  = bannerCollectionView.bounds.height
-        let width  = bannerCollectionView.bounds.width
+        let height  = flagCollectionView.bounds.height
+        let width  = flagCollectionView.bounds.width
         return CGSize(width: width, height: height)
     }
 }
 
 
-extension HomePageBannerCell: UICollectionViewDelegate {
+extension CountryFlagCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let index = collectionView.visibleCurrentCellIndexPath {
-            pageControl.currentPage = index.row
-            didChangeTeam?(index.row)
+        if let cell = collectionView.visibleCells.first,
+           let indexpath =  collectionView.indexPath(for: cell) {
+            pageControl.currentPage = indexpath.row
+            didChangeTeam?(indexpath.row)
         }
     }
 }
