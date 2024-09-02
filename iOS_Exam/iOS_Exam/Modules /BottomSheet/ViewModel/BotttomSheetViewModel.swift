@@ -33,7 +33,7 @@ final class BottomSheetViewModel: BottomSheetViewModelProtocol {
     }
     
     func getCharacterCountString(result: CharacterOccurrenceData) -> String {
-        return "\(result.character?.capitalized) = \(result.count)"
+        return "\(result.character?.capitalized ?? "") = \(result.count ?? 0)"
     }
 }
 
