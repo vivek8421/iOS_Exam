@@ -12,9 +12,11 @@ protocol TeamViewModelProtocol {
     var successBlock: (() -> Void)? { get set }
     var failureBlock: ((_ errorMessage: String) -> Void)? { get set }
     var filterTeamPlayers: [Player] { get set}
-    var selectedPlayers: [Player] { get set }
+    var selectedIndex: Int { get set }
     func didChangeTeam(index: Int, searchText: String)
+    func getSelectedCountryPlayers() -> [Player]
     func didSearchPlayer(text: String)
+    func didCancelSearch()
     func fetchData()
 }
 
@@ -24,8 +26,9 @@ final class TeamViewModel: TeamViewModelProtocol {
     
     var successBlock: (() -> Void)?
     var failureBlock: ((_ errorMessage: String) -> Void)?
+    
     var teams: [Team] = []
-    var selectedPlayers: [Player] = []
+    var selectedIndex: Int = 0
     var filterTeamPlayers: [Player] = [] {
         didSet {
             if let successBlock {
@@ -35,16 +38,27 @@ final class TeamViewModel: TeamViewModelProtocol {
     }
     
     func didChangeTeam(index: Int, searchText: String) {
-        selectedPlayers = teams[index].players ?? []
+        selectedIndex = index
         didSearchPlayer(text: searchText)
     }
     
     func didSearchPlayer(text: String) {
+        let players = teams[selectedIndex].players ?? []
         if text.isEmpty {
-            filterTeamPlayers = selectedPlayers
+            filterTeamPlayers = players
         } else {
-            filterTeamPlayers = selectedPlayers.filter { ($0.name?.lowercased() ?? "").contains(text.lowercased()) }
+            filterTeamPlayers = players.filter {
+                ($0.name?.lowercased() ?? "").contains(text.lowercased())
+            }
         }
+    }
+    
+    func getSelectedCountryPlayers() -> [Player] {
+        return teams[selectedIndex].players ?? []
+    }
+    
+    func didCancelSearch() {
+        filterTeamPlayers = teams[selectedIndex].players ?? []
     }
     
     func fetchData() {
@@ -53,7 +67,7 @@ final class TeamViewModel: TeamViewModelProtocol {
         switch result {
         case .success(let teams) :
             self.teams = teams
-            selectedPlayers = teams.first?.players ?? []
+            selectedIndex = 0
             filterTeamPlayers = teams.first?.players ?? []
             
         case .failure(let error) :

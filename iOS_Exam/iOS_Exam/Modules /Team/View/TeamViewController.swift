@@ -76,7 +76,7 @@ class TeamViewController: UIViewController {
     
     @IBAction func presentBottomSheet(_ sender: Any) {
         if let bottomSheetVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.bottomSheetViewController) as? BottomSheetViewController {
-            bottomSheetVC.viewModel.player = viewModel.selectedPlayers
+            bottomSheetVC.viewModel.player = viewModel.getSelectedCountryPlayers()
             self.presentBottomSheet(height: 180, viewController: bottomSheetVC)
         }
     }
@@ -141,7 +141,7 @@ extension TeamViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.filterTeamPlayers = viewModel.selectedPlayers
+        viewModel.didCancelSearch()
         searchBar.text = ""
         searchBar.resignFirstResponder()
         searchBar.showsCancelButton = false
